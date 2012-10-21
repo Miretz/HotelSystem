@@ -1,7 +1,7 @@
 HotelSystem
 ===========
 
-Information System for hotels written in Django.
+Information System for hotels written in Python using the Django framework (https://www.djangoproject.com/).
 
 I've used the project template from Andrew McCloud (https://github.com/amccloud/django-project-skel/).
 
