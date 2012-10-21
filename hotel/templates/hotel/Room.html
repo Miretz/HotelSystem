@@ -1,0 +1,22 @@
+{% include "hotel/header.html" %}
+
+<table cellspacing='0' width="100%" title="Hotel Reservation" class="winter">
+    <thead>    
+    <tr>
+        <th>ROOM DETAILS</th>
+        <th>&nbsp;</th>
+    </tr>
+    </thead>
+    <tbody>
+        <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_table }}
+        <tr><td><input type="submit" value="Save" /></td><td></td></tr>
+        </form>
+    </tbody>
+</table>
+<a href="javascript:history.back(-1);"><< Go back</a></td>
+
+
+
+

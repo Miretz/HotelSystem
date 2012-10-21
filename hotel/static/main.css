@@ -1,0 +1,370 @@
+/* GLOBAL */
+
+body{
+    background-image:url('/static/background.png');
+    background-repeat:no-repeat;
+    background-position: right bottom;
+    margin: 10px;
+}
+
+
+h1 {
+    font-family: "Lucida Grande", Tahoma;
+    color: #888;
+    margin: 0px;
+    padding: 0px 0px 6px 0px;
+    font-size: 21px;
+    line-height: 44px;
+    letter-spacing: -2px;
+    font-weight: lighter;
+    font-variant: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+}
+
+img {
+    border:1px solid #D3D1D2;
+}
+
+
+fieldset{
+    border:1px solid #D3D1D2;
+}
+
+legend{
+    padding: 0.2em 0.5em;
+    font-size:90%;
+    text-align:left;
+    font-family: "Lucida Grande", Tahoma;
+    color: #444;
+}
+
+form {
+    text-shadow: rgba(255, 255, 255, 0.796875) 0px 1px 0px;
+    font-family: Georgia,"Times New Roman","Bitstream Charter",Times,serif;
+    font-weight: normal;
+    padding: 7px 7px 8px;
+    text-align: left;
+    line-height: 1.3em;
+    font-size: 12px;
+}
+
+input[type="text"], input[type="email"], textarea{
+    border: 1px solid #DFDFDF;
+    background-color: #F9F9F9;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    font-family: Arial,"Bitstream Vera Sans",Helvetica,Verdana,sans-serif;
+    color: #333;
+    margin-bottom: 5px;
+    display: block;
+    padding: 4px;
+    width: 300px;
+    font-size: 12px;
+}
+
+textarea {
+    resize:vertical;
+} 
+
+#topmenu a {
+    font: 85% "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", sans-serif;
+    color: #333;
+    margin-top: 10px;
+    text-align: center!important;
+    letter-spacing: 0.3em;
+    text-decoration: none;
+}
+
+#topmenu a:hover {
+    font: 85% "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", sans-serif;
+    color: #fff;
+    margin-top: 10px;
+    text-align: center!important;
+    letter-spacing: 0.3em;
+    text-decoration: none;
+    background-color: #000;
+}
+
+/* ROOMS */
+
+.room_occupied {
+    padding: 0px;
+    color: #333; 
+    background: #FFFFCC;
+    text-align: center;
+    margin: 0px;
+}
+
+.room_reserved {
+    padding: 0px;
+    color: #333; 
+    background: #FFCF75;
+    text-align: center;
+    margin: 0px;
+}
+
+.room_overdue {
+    padding: 0px;
+    color: #fff; 
+    background: #CC0000;
+    text-align: center;
+    margin: 0px;
+}
+
+
+.room_free {
+    padding: 0px;
+    color: #333; 
+    background: #AAF200;
+    text-align: center;
+    margin: 0px;
+}
+
+
+.roomnr {
+    font: 85% "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", sans-serif;
+    color: #fff;
+    font-size: 18px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    background: #3A4856;
+    text-align: center!important;
+    letter-spacing: 0.3em;
+    text-decoration: none;
+    cursor:pointer;
+}
+
+.roomnr:hover {
+    background: #6C7A88;
+}
+
+
+.roomnr a {
+    font: 85% "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", sans-serif;
+    color: #333;
+    margin-top: 10px;
+    text-align: center!important;
+    letter-spacing: 0.3em;
+    text-decoration: none;
+}
+
+
+
+
+.reser {
+    font: 85% "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", sans-serif;
+    text-align: center;
+    font-size: 13px;
+    font-weight: bold;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    cursor:pointer;
+}
+
+.status {
+    font: 85% "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", sans-serif;
+    text-align: center;
+    font-size: 13px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    cursor:pointer;
+}
+.dates {
+    font: 85% "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", sans-serif;
+    text-align: center;
+    font-size: 11px;
+    margin: 2px;
+    cursor:pointer;
+}
+
+
+.reserve_link {
+    font: 85% "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", sans-serif;
+    text-decoration: none;
+    font-weight: bold;
+    color: #000;
+    padding: 2px;
+}
+
+.reserve_link:hover {
+    font: 85% "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", sans-serif;
+    text-decoration: none;
+    font-weight: bold;
+    color: #000;
+    padding: 2px;
+    background: #FFFFFF;
+}
+
+
+
+.floor {
+    width: 100%;
+    position: relative;
+    display: block;
+    float: left;
+    background: #EAECEE;
+}
+
+
+.floor div {
+    position: relative;
+    display: block;
+    float: left;
+    margin: 4px;
+    width: 180px;
+    height: 150px;
+    padding: 0px;
+    border: 0px solid #333;
+    -webkit-box-shadow: 0 8px 6px -6px #777;
+    -moz-box-shadow: 0 8px 6px -6px #777;
+    box-shadow: 0 8px 6px -6px #777;
+}
+
+
+
+table th {
+    height: 30px;
+}
+
+#roomshow {
+
+}
+
+/* CLASSES */
+
+.headline {
+    font-family: "Lucida Grande", Tahoma;
+    color: #444;
+    margin: 0;
+    padding: 0px 0px 0px 0px;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -2px;
+    font-weight: lighter;
+    font-variant: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.author {
+    font-family: "Lucida Grande", Tahoma;
+    color: #666;
+    margin: 0;
+    padding: 0px 0px 0px 0px;
+    font-size: 12px;
+    line-height: 12px;
+    letter-spacing: -2px;
+    font-weight: lighter;
+    font-variant: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.note {
+    text-shadow: rgba(255, 255, 255, 0.796875) 0px 1px 0px;
+    font-family: Georgia,"Times New Roman","Bitstream Charter",Times,serif;
+    font-weight: normal;
+    padding: 0px 0px 8px;
+    text-align: left;
+    line-height: 1.3em;
+    font-size: 14px;
+}
+
+.smalldate {
+    font-family: "Lucida Grande", Tahoma;
+    color: #666;
+    margin: 0;
+    padding: 0px 0px 0px 0px;
+    font-size: 8px;
+    line-height: 14px;
+    letter-spacing: -2px;
+    font-weight: lighter;
+    font-variant: normal;
+    letter-spacing: 0.1em;
+}
+
+.headlink {
+    font-family: "Lucida Grande", Tahoma;
+    color: #888;
+    margin: 0;
+    padding: 0px 0px 6px 0px;
+    font-size: 24px;
+    line-height: 44px;
+    letter-spacing: -2px;
+    font-weight: lighter;
+    font-variant: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#topmenu {
+    float: right;
+    display: block;
+    background-color: #F3F5F7; 
+    margin: 0px;
+}
+
+#topmenu a {
+    margin: 1px;
+    padding: 10px;
+    border: 1px solid #3A4856;
+    float: left;    
+    display: block;
+    background-color: #F3F5F7; 
+}
+
+#topmenu a:hover {
+    margin: 1px;
+    display: block;
+    color: #fff;
+    background-color: #3A4856; 
+}
+
+
+/* TABLE */
+/* "Winter Blues" CSS theme for CSS Table Gallery (http://icant.co.uk/csstablegallery/) by Gunta Klavina (http://www.klavina.com) */
+table.winter {font: 85% "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", sans-serif; padding: 0; margin: 0; border-collapse: collapse; color: #333; background: #F3F5F7;}
+
+table.winter a {color: #3A4856; text-decoration: none;}  
+
+table.winter a:visited {color: #777;}
+
+table.winter a:hover {color: #000; border-bottom: 2px solid #C6C8CB;}  
+
+table.winter caption {text-align: left; text-transform: uppercase;  padding-bottom: 10px; font: 200% "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", sans-serif;}
+
+table.winter thead th {background: #3A4856; padding: 15px 10px; color: #fff; text-align: left; font-weight: normal;}
+
+table.winter tbody, table thead {border-left: 1px solid #EAECEE; border-right: 1px solid #EAECEE;}
+
+table.winter tbody {border-bottom: 1px solid #EAECEE;}
+                      
+table.winter tbody td, table tbody th {padding: 10px; background: url("td_back.gif") repeat-x; text-align: left;}
+
+table.winter tbody tr {background: #F3F5F7; cursor: pointer;}
+
+table.winter tbody tr.odd {background: #F0F2F4;}
+
+table.winter tbody  tr:hover {background: #EAECEE; color: #111;}
+
+table.winter tfoot td, table tfoot th, table tfoot tr {text-align: left; font: 120%  "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", sans-serif; text-transform: uppercase; background: #fff; padding: 10px;}
+
+/* GANT TABLE */
+table.gant {
+    border:1px solid #D3D1D2; 
+    border-collapse:collapse; 
+    border-width: 1px 1px 1px 1px;
+}
+
+table.gant td{
+    border:1px solid #D3D1D2; 
+    border-collapse:collapse; 
+    border-width: 1px 1px 1px 1px;
+}

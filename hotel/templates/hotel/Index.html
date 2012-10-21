@@ -1,0 +1,39 @@
+{% include "hotel/header.html" %}
+
+
+{% if res_list %}
+    <table cellspacing='0' width="100%" title="Hotel Reservations" class="sortable winter">
+    <thead>    
+    <tr>
+        <th>Room number</th>
+        <th>Customer</th>
+        <th>Created</th>
+        <th>Reserved from</th>
+        <th>Reserved until</th>
+        <th>Check In</th>
+        <th>Check Out</th>
+        <th>Status</th>
+        <th>All Inclusive</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for res in res_list %}
+    <tr onClick="window.location.href='/hotel/{{ res.id }}'">
+        <td>{{ res.room }}</td>
+        <td>{{ res.customer }}</td>
+        <td>{{ res.created }}</td>
+        <td>{{ res.reserved_from }}</td>
+        <td>{{ res.reserved_until }}</td>
+        <td>{{ res.checkin }}</td>
+        <td>{{ res.checkout }}</td>
+        <td>{{ res.get_status }}</td>
+        <td>{{ res.all_inclusive }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+{% else %}
+    <p>No Reservations found.</p>
+{% endif %}
+
+

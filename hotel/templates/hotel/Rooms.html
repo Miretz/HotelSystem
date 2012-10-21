@@ -1,0 +1,202 @@
+{% include "hotel/header.html" %}
+
+{% if room_list %}
+
+<!--
+<table class="sortable" cellspacing="0" cellpadding="0">
+<thead>    
+    <tr bgcolor="#ccc"><th>ROOM</th></tr>
+    
+</thead>
+<tbody>
+<tr>
+<td>
+    <div class='floor'>
+        {% for room in room_list %}
+            {% if room.is_occupied %}
+                {% if room.is_overdue %}
+                    <div class="room_overdue">
+                 {% else %}
+                    <div class="room_occupied">
+                 {% endif%}
+            {% else %}
+                {% if room.is_reserved %}
+                    <div class="room_reserved">
+                {% else %}
+                    <div class="room_free">
+                {% endif%}
+            {% endif %}
+            
+            <p class="roomnr" onClick="window.location.href='/hotel/rooms/{{ room.number }}'">{{ room.number }}</p>
+            
+
+            {% if room.resact.id %}
+                <p class="reser"  onClick="window.location.href='/hotel/editcust/{{ room.resact.customer.id }}'">{{ room.res_name }}</p>
+                <p class="status" onClick="window.location.href='/hotel/{{ room.resact.id }}'">{{ room.restat }}
+            {% else %}
+                {% if room.get_reserved %}
+                    <p class="reser"  onClick="window.location.href='/hotel/editcust/{{ room.get_reserved.customer.id }}'">{{ room.res_name }}</p>
+                    <p class="status" onClick="window.location.href='/hotel/{{ room.get_reserved.id }}'">{{ room.restat }}
+                    
+                {% else %}
+                    <p class="reser">{{ room.res_name }}</p>
+                    <p class="status">{{ room.restat }}
+                {% endif %}
+            {% endif %}
+
+
+            {% if room.is_overdue %}
+                - Overdue!
+            {% endif %}
+            {% if room.is_last_day %}
+                - Last day!
+            {% endif %}
+            </p>
+            
+            {% if room.is_occupied or room.is_reserved %}
+                <p class="dates">From: {{ room.period_from }}</p>
+                <p class="dates">Until: {{ room.period_until }}</p>
+            {% else %}
+                <a href="/hotel/new/{{ room.number }}" class="reserve_link">Reserve room</a>
+            {% endif %}
+            </div>
+       {% endfor %}
+    </div>
+
+</td>
+</tr>
+</tbody>
+</table>
+
+<br/>
+<br/> -->
+
+<br/>
+<table width="100%" class="gant">
+<script>
+var today = new Date();
+var days = new Date(today.getFullYear(), today.getMonth()+1, 0).getDate();
+document.write("<b>Current date: " + today + "</b>");
+
+//create calendar
+document.write("<tr>");
+for(var k = 0; k<=days; k++)
+{
+    if(k ==0)
+    {
+        document.write("<td bgcolor='ffcc00'>ROOM</td>");
+    }
+    else
+    {
+        var tempDate = new Date(today.getFullYear(), today.getMonth(), k);
+        var dateString = tempDate.getDate() + "." + (tempDate.getMonth()+1);
+        
+        if(k<10)
+        {
+            dateString = "0" + dateString;
+        }
+        
+        if(tempDate.getDate() == today.getDate())
+        {
+            dateString = "<b>" + dateString + "</b>";
+            document.write("<td bgcolor='FFFFBE'>" + dateString + "</td>");
+        }
+        else
+        {
+            if(tempDate.getDay() == 0 || tempDate.getDay() == 6)
+            {
+                document.write("<td bgcolor='DCF0F7'>" + dateString + "</td>");
+            }
+            else
+            {
+                document.write("<td>" + dateString + "</td>");
+            }
+        }
+    }
+}
+document.write("</tr>");
+
+</script>
+{% for room in room_list %}
+    <script>
+        var dates = new Array();
+        var l = 0;
+    </script>
+    
+    {% for res in room.allres %}
+        <script>
+            dates[l] = '{{res.get_formated_date_from }}';
+            l++;
+            dates[l] = '{{res.get_formated_date_until }}';
+            l++;
+        </script>
+    {% endfor%}
+
+    <script>
+    //create calendar
+    document.write("<tr>");
+    
+    var reservedDay = false;
+    
+    for(var k = 0; k<=days; k++)
+    {
+        if(k ==0)
+        {
+            document.write("<td bgcolor='ffcc00'><a href='/hotel/rooms/{{ room.number }}'>" + '{{ room.number }}' + "</a></td>");
+        }
+        else 
+        {
+            var tempDate = new Date(today.getFullYear(), today.getMonth(), k);
+            var dateString = tempDate.getDate() + "." + (tempDate.getMonth()+1);
+            if(k<10)
+            {
+                dateString = "0" + dateString;
+            }
+            
+            dateString += "." + today.getFullYear();
+            
+            
+            
+            if(dates.indexOf(dateString) > -1 )
+            {
+                if(dates.indexOf(dateString)%2==0)
+                {
+                    document.write("<td bgcolor='ffcc00'>start</td>");
+                    reservedDay = true;
+                }
+                else
+                {
+                    document.write("<td bgcolor='ffcc00'>end</td>");
+                    reservedDay = false;
+                }
+            }
+            
+            else if(reservedDay)
+            {
+                document.write("<td bgcolor='ffcc00'>reserved</td>");
+            }
+            else
+            {
+                if(tempDate.getDay() == 0 || tempDate.getDay() == 6)
+                {
+                    document.write("<td bgcolor='DCF0F7'>&nbsp;</td>");
+                }
+                else
+                {
+                    document.write("<td>&nbsp;</td>");
+                }
+            }
+        }
+    }
+    document.write("</tr>");
+    </script>
+
+{% endfor %}
+</table>
+
+{% else %}
+    <p>No rooms found.</p>
+{% endif %}
+
+
+

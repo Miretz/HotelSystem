@@ -1,0 +1,73 @@
+{% include "hotel/header.html" %}
+
+<!-- START OF TIMEPICKER HEAD -->
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.16/jquery-ui.min.js"></script>
+<link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.16/themes/hot-sneaks/jquery-ui.css" />
+<script src="/static/jquery-ui-timepicker-addon.js"></script>
+
+<style>
+/* css for timepicker */
+.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
+.ui-timepicker-div dl { text-align: left; }
+.ui-timepicker-div dl dt { height: 25px; margin-bottom: -25px; }
+.ui-timepicker-div dl dd { margin: 0 10px 10px 65px; }
+.ui-timepicker-div td { font-size: 90%; }
+.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+</style>
+<!-- END OF TIMEPICKER HEAD -->
+
+
+{% if room %}
+<script type="text/javascript">
+    window.onload = function(){
+        var selObj = document.getElementById('id_room');
+        var v = '{{ room.number }}';
+        for ( var i = 0; i < selObj.options.length; i++ ) {
+            if ( selObj.options[i].text == v ) {
+                selObj.options[i].selected = true;
+                return;
+            }
+        }
+    }
+</script>
+{% endif %}
+
+<br/ >
+<table cellspacing='0' width="100%" title="Hotel Reservation" class="winter">
+    <thead>    
+    <tr>
+        <th>RESERVATION DETAILS</th>
+        <th>&nbsp;</th>
+    </tr>
+    </thead>
+    <tbody>
+        <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_table }}
+        <tr><td><input type="submit" value="Save" /></td><td></td></tr>
+        </form>
+    </tbody>
+</table>
+
+
+<!-- TIMEPICKER INIT -->
+<script>
+$(document).ready(function() {
+    $('#id_created').datetimepicker({ dateFormat: 'yy-mm-dd' });
+    $('#id_checkin').datetimepicker({ dateFormat: 'yy-mm-dd' });
+    $('#id_checkout').datetimepicker({ dateFormat: 'yy-mm-dd' });
+    $('#id_reserved_until').datetimepicker({ dateFormat: 'yy-mm-dd' });
+    $('#id_reserved_from').datetimepicker({ dateFormat: 'yy-mm-dd' });
+});
+</script>
+<!-- END OF TIMEPICKER INIT -->
+
+
+
+
+
+
+
+
+
