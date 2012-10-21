@@ -15,6 +15,8 @@ To run this:
 
 4. Open "localhost:8008/hotel" in your browser.
 
+5. To log on to administration use User: admin, Password: admin
+
 
 If you are new to Django please refer to: https://docs.djangoproject.com/en/1.4/
 
