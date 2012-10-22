@@ -2,75 +2,6 @@
 
 {% if room_list %}
 
-<!--
-<table class="sortable" cellspacing="0" cellpadding="0">
-<thead>    
-    <tr bgcolor="#ccc"><th>ROOM</th></tr>
-    
-</thead>
-<tbody>
-<tr>
-<td>
-    <div class='floor'>
-        {% for room in room_list %}
-            {% if room.is_occupied %}
-                {% if room.is_overdue %}
-                    <div class="room_overdue">
-                 {% else %}
-                    <div class="room_occupied">
-                 {% endif%}
-            {% else %}
-                {% if room.is_reserved %}
-                    <div class="room_reserved">
-                {% else %}
-                    <div class="room_free">
-                {% endif%}
-            {% endif %}
-            
-            <p class="roomnr" onClick="window.location.href='/hotel/rooms/{{ room.number }}'">{{ room.number }}</p>
-            
-
-            {% if room.resact.id %}
-                <p class="reser"  onClick="window.location.href='/hotel/editcust/{{ room.resact.customer.id }}'">{{ room.res_name }}</p>
-                <p class="status" onClick="window.location.href='/hotel/{{ room.resact.id }}'">{{ room.restat }}
-            {% else %}
-                {% if room.get_reserved %}
-                    <p class="reser"  onClick="window.location.href='/hotel/editcust/{{ room.get_reserved.customer.id }}'">{{ room.res_name }}</p>
-                    <p class="status" onClick="window.location.href='/hotel/{{ room.get_reserved.id }}'">{{ room.restat }}
-                    
-                {% else %}
-                    <p class="reser">{{ room.res_name }}</p>
-                    <p class="status">{{ room.restat }}
-                {% endif %}
-            {% endif %}
-
-
-            {% if room.is_overdue %}
-                - Overdue!
-            {% endif %}
-            {% if room.is_last_day %}
-                - Last day!
-            {% endif %}
-            </p>
-            
-            {% if room.is_occupied or room.is_reserved %}
-                <p class="dates">From: {{ room.period_from }}</p>
-                <p class="dates">Until: {{ room.period_until }}</p>
-            {% else %}
-                <a href="/hotel/new/{{ room.number }}" class="reserve_link">Reserve room</a>
-            {% endif %}
-            </div>
-       {% endfor %}
-    </div>
-
-</td>
-</tr>
-</tbody>
-</table>
-
-<br/>
-<br/> -->
-
 <br/>
 <table width="100%" class="gant">
 <script>
@@ -161,19 +92,19 @@ document.write("</tr>");
             {
                 if(dates.indexOf(dateString)%2==0)
                 {
-                    document.write("<td bgcolor='ffcc00'>start</td>");
+                    document.write("<td bgcolor='#336699'></td>");
                     reservedDay = true;
                 }
                 else
                 {
-                    document.write("<td bgcolor='ffcc00'>end</td>");
+                    document.write("<td bgcolor='#336699'></td>");
                     reservedDay = false;
                 }
             }
             
             else if(reservedDay)
             {
-                document.write("<td bgcolor='ffcc00'>reserved</td>");
+                document.write("<td bgcolor='#336699'></td>");
             }
             else
             {
