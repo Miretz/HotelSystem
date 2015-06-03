@@ -7,9 +7,11 @@ I've used the project template from Andrew McCloud (https://github.com/amccloud/
 
 To run this:
 
-1. Install python 2.7.3
+1. Install python
 
-2. Install django 1.4
+2. Install django 1.8 (pip install django)
+
+3. Install django-forms (pip install  django-formtools)
 
 3. Run "python manage.py runserver 8080"
 
@@ -18,7 +20,7 @@ To run this:
 5. To log on to administration use User: admin, Password: admin
 
 
-If you are new to Django please refer to: https://docs.djangoproject.com/en/1.4/
+If you are new to Django please refer to: https://docs.djangoproject.com/
 
 
 

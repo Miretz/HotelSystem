@@ -1,4 +1,4 @@
-from django.shortcuts import get_object_or_404, render_to_response
+from django.shortcuts import render, get_object_or_404, render_to_response
 from django.template import Context, loader
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
@@ -9,9 +9,9 @@ from django.shortcuts import redirect
 import random
 from django.http import Http404
 from hotel.forms import NewResForm, NewCustForm, RoomForm
-from django.shortcuts import render
 from hotel.models import Customer
-from django.views.generic.simple import direct_to_template
+#from django.views.generic.simple import direct_to_template
+#from django.views.generic import TemplateView
 
 '''
 INDEX
@@ -40,7 +40,7 @@ def oneroom(request, room_id):
     if form.is_valid():
         form.save()
         return HttpResponseRedirect('/hotel/rooms/')
-    return direct_to_template(request, 'hotel/Room.html', {'form': form})
+    return render(request, 'hotel/Room.html', {'form': form})
 
 '''
 RESERVATION
@@ -51,7 +51,7 @@ def reservation(request, reservation_id):
     if form.is_valid():
         form.save()
         return HttpResponseRedirect('/hotel/rooms/')
-    return direct_to_template(request, 'hotel/NewRes.html', {'form': form})
+    return render(request, 'hotel/NewRes.html', {'form': form})
 
 
 '''
@@ -109,7 +109,7 @@ def editcust(request,id_cust):
     if form.is_valid():
         form.save()
         return HttpResponseRedirect('/hotel/rooms/')
-    return direct_to_template(request, 'hotel/NewCust.html', {'form': form})
+    return render(request, 'hotel/NewCust.html', {'form': form})
 
 
 

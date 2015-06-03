@@ -9,11 +9,14 @@ from django.contrib.admin import widgets
 class NewResForm(forms.ModelForm):
     class Meta:
         model = Reservation
+        fields = '__all__'
 
 class NewCustForm(forms.ModelForm):
     class Meta:
         model = Customer
+        fields = '__all__'
 
 class RoomForm(forms.ModelForm):
     class Meta:
         model = Room
+        fields = '__all__'

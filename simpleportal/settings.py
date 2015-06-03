@@ -20,7 +20,7 @@ MANAGERS = ADMINS
 # timezone as the operating system.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = 'SK'
+TIME_ZONE = 'Europe/Bratislava'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
@@ -123,7 +123,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'hotel',
-    'django.contrib.formtools',
+    'formtools'
 )
 
 # A sample logging configuration. The only tangible logging
